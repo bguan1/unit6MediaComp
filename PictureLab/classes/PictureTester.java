@@ -17,6 +17,20 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void Negate()
+  {
+      Picture beach = new Picture("beach.jpg");
+      beach.explore();
+      beach.Negate();
+      beach.explore();
+  }
+  public static void greyScale()
+  {
+      Picture beach = new Picture("beach.jpg");
+      beach.explore();
+      beach.greyScale();
+      beach.explore();
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -49,6 +63,21 @@ public class PictureTester
     Picture swan = new Picture("swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
+  }
+  
+  public static void keepOnlyBlue()
+  {
+      Picture snowman = new Picture("snowman.jpg");
+      snowman.keepOnlyBlue();
+      snowman.explore();
+  }
+  
+  public static void mirrorArms()
+  {
+      Picture snowman = new Picture("snowman.jpg");
+      snowman.explore();
+      snowman.mirrorArms();
+      snowman.explore();
   }
   
   /** Main method for testing.  Every class can have a main

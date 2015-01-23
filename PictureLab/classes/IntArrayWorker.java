@@ -27,7 +27,7 @@ public class IntArrayWorker
     }
     return total;
   }
-  
+      
   /**
    * Method to return the total using a nested for-each loop
    * @return the total of the values in the array
@@ -62,6 +62,55 @@ public class IntArrayWorker
     }
   }
   
+  public int getCount(int num)
+  {
+      int numCols = matrix[0].length;
+      int count = 0;
+      for (int row = 0; row < matrix.length; row++)
+      {
+      for (int col = 0; col < numCols; col++)
+      {
+          matrix[row][col] = count;
+          if(count == num)
+          {
+              count++;
+          }
+      }
+      }
+      return count;
+  }
+  public int getLargest()
+  {
+      int numCols = matrix[0].length;
+      int max = 0;
+      int count = 0;
+      for (int row = 0; row < matrix.length; row++)
+      {
+      for (int col = 0; col < numCols; col++)
+      {
+          matrix[row][col] = count;
+          if(count > max)
+          {
+              max = count;
+           }
+      }
+      }
+      return max;
+  }
+  
+  public int getColTotal(int num)
+  {
+      int numRows = matrix.length;
+      int total = 0;
+      int count = 0;
+      for (int row = 0; row < numRows; row++)
+      {
+          matrix[row][num] = count;
+          total += count;
+      }
+      return total;
+    }
+      
   /**
    * print the values in the array in rows and columns
    */
@@ -78,7 +127,7 @@ public class IntArrayWorker
     System.out.println();
   }
   
-  
+ 
   /** 
    * fill the array with a pattern
    */
