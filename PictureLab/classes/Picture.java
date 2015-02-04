@@ -98,6 +98,30 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void zeroRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+      }
+    }
+  }
+  
+  public void zeroGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
   public void Negate()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -135,6 +159,32 @@ public class Picture extends SimplePicture
       for (Pixel pixelObj : rowArray)
       {
         pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
+  public void keepOnlyGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setBlue(0);
+      }
+    }
+  }
+  
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setBlue(0);
         pixelObj.setGreen(0);
       }
     }
@@ -281,10 +331,29 @@ public class Picture extends SimplePicture
     Picture saayujhHorz = new Picture(saayujh);
     saayujhHorz.mirrorHorizontal();
     this.copy(saayujhHorz, 150, 150);
+    Picture saayujhBlue = new Picture(saayujh);
+    saayujhBlue.keepOnlyBlue();
+    this.copy(saayujhBlue, 300, 0);
     Picture saayujhfourths = new Picture(saayujh);
     saayujhfourths.mirrorHorizontal();
     saayujhfourths.mirrorVertical();
     this.copy(saayujhfourths, 300, 150);
+    Picture saayujhGreen = new Picture(saayujh);
+    saayujhGreen.keepOnlyGreen();
+    this.copy(saayujhGreen, 150, 300);
+    Picture saayujhRed = new Picture(saayujh);
+    saayujhRed.keepOnlyRed();
+    this.copy(saayujhRed, 300, 300);
+    Picture saayujhNoRed = new Picture(saayujh);
+    saayujhNoRed.zeroRed();
+    this.copy(saayujhNoRed, 0, 450);
+    Picture saayujhNoGreen = new Picture(saayujh);
+    saayujhNoGreen.zeroGreen();
+    this.copy(saayujhNoGreen, 150, 450);
+    Picture saayujhBWFlip = new Picture (saayujh);
+    saayujhBWFlip.mirrorVertical();
+    saayujhBWFlip.greyScale();
+    this.copy(saayujhBWFlip, 300, 450);
     this.write("collage.jpg");
   }
   
